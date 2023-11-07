@@ -2,7 +2,7 @@
 
 ## Overview
 
-Stargazer listens to Github webhooks for new star events on a repo and then sends a message to a slack channel with the repo with the following information:
+Stargazer listens to Github webhooks for new star events on a repo and then sends a message to a slack channel with the following information:
 
 1. The github username of the user that starred it
 2. The repo that was starred
