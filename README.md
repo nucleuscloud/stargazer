@@ -18,7 +18,7 @@ We've deployed Stargazer as a lamdba function on AWS behind an API gateway but y
 
 1. Github sends a webhook with the event payload to an endpoint you specify when you configure the Github Webhook. Since we deployed Stargazer on AWS Lambda behind an API Gateway, we use the API gateway as our endpoint. You can listen for multiple events but this repo only listens for star events. Github has a whole list of events you can listen to [here](https://docs.github.com/en/webhooks/webhook-events-and-payloads).
 
-2. The API gateway then routes the webhook to the AWS lambda where it verifies the signature and then conditionally makes a call to the slack API based on the eventType. If you want to listen to more event types, you'd probably want to add them here. _Note_: Github signs the payload using an HMAC SHA256 secret that you provide when you configure the Github webhook. This repo handles verifying the signature within the AWS Lambda function but depending on your deployment you may want to do that somewhere else.
+2. The API gateway then routes the webhook to the AWS lambda where it verifies the signature and then conditionally makes a call to the slack API based on the eventType. If you want to listen to more event types, you'd probably want to add them here. _Note_: Github signs the payload using an HMAC SHA256 secret that you provide when you configure the Github webhook. This repo handles verifying the signature within the AWS Lambda function but depending on your deployment you may want to do that somewhere else. See [here](https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries) for more information.
 
 3. The Slack API then calls the Stargazer bot in the channel and then posts the message to the channel.
 
